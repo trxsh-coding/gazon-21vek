@@ -11,31 +11,42 @@
     "lint": "eslint . --ext js,ts,jsx,tsx --max-warnings 0",
     "format": "prettier --write .",
     "test": "vitest",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "check:all": "yarn lint && yarn format:write && yarn type-check"
   },
   "dependencies": {
     "next": "15.2.1",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.2.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
     "husky": "^9.1.7",
+    "jsdom": "^26.0.0",
     "lint-staged": "^15.4.3",
     "prettier": "^3.5.3",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.7"
   },
   "lint-staged": {
     "**/*.{js,ts,jsx,tsx}": [
       "yarn lint",
-      "yarn prettier --write"
+      "yarn prettier --write ."
     ]
   }
 }
